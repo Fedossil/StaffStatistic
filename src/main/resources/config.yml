@@ -1,0 +1,79 @@
+# ==========================================================
+#                   StaffStatistic v1.0
+#             Конфигурация плагина управления стаффом
+# ==========================================================
+
+settings:
+  # Язык сообщений по умолчанию.
+  # Файл с соответствующим названием должен лежать в папке /locale/ (ru_RU или en_US)
+  language: "ru_RU"
+
+# ==========================================================
+#              Система наказаний для стаффа
+# ==========================================================
+punishments:
+  # Включить/выключить систему предов и выговоров
+  enabled: true
+
+  # Максимальное количество предупреждений до получения выговора
+  max-warns: 3
+
+  # Максимальное количество выговоров
+  max-rebukes: 2
+
+  # Автоматически снимать сотрудника со стаффа при достижении лимита выговоров
+  auto-kick-on-limit: true
+
+# ==========================================================
+#                 Настройка должностей и норм
+# ==========================================================
+# Каждая должность может иметь свои права, приоритет в GUI и нормы.
+# priority: чем больше число, тем выше должность в списке GUI.
+#
+# Нормы (requirements):
+# min-weekly-hours: норма времени на смене в часах за неделю (для отчетности)
+# min-bans-week: минимальное количество выданных банов за неделю
+# min-mutes-week: минимальное количество выданных мутов за неделю
+# ==========================================================
+roles:
+  helper:
+    display-name: "&#55FF55Хелпер"
+    priority: 1
+    # Норма для хелпера
+    requirements:
+      min-weekly-hours: 10
+      min-bans-week: 0
+      min-mutes-week: 25
+    # Права LuckPerms, которые выдаются ПРИ ВХОДЕ В СМЕНУ (/sw) и забираются при выходе
+    permissions:
+      - "minecraft.command.teleport"
+      - "coreprotect.inspect"
+      - "litebans.mute"
+      - "litebans.warn"
+
+  moder:
+    display-name: "&#00D2FFМодератор"
+    priority: 2
+    requirements:
+      min-weekly-hours: 15
+      min-bans-week: 5
+      min-mutes-week: 15
+    permissions:
+      - "minecraft.command.teleport"
+      - "coreprotect.inspect"
+      - "litebans.mute"
+      - "litebans.ban"
+      - "litebans.tempban"
+      - "litebans.kick"
+
+  curator:
+    display-name: "&#FF5555Куратор"
+    priority: 3
+    requirements:
+      min-weekly-hours: 20
+      min-bans-week: 0
+      min-mutes-week: 0
+    permissions:
+      - "minecraft.command.teleport"
+      - "coreprotect.inspect"
+      - "litebans.*"

@@ -1,0 +1,100 @@
+# ==========================================================
+#           Синхронизация с Google Таблицами
+# ==========================================================
+# Инструкция по настройке:
+# 1. Создайте новую Google Таблицу (или очистите текущую).
+# 2. В верхнем меню выберите: Расширения -> Apps Script.
+# 3. Полностью удалите стандартный код и вставьте следующий скрипт:
+#
+# function doPost(e) {
+#   var ss = SpreadsheetApp.getActiveSpreadsheet();
+#   var sheet = ss.getActiveSheet();
+#
+#   if (sheet.getLastRow() === 0) {
+#     setupHeader(sheet);
+#   }
+#
+#   var data = JSON.parse(e.postData.contents);
+#
+#   sheet.appendRow([
+#     data.date,
+#     data.player,
+#     data.role,
+#     data.sessionTime,
+#     data.totalTime,
+#     data.warns,
+#     data.rebukes
+#   ]);
+#
+#   var lastRow = sheet.getLastRow();
+#   var rowRange = sheet.getRange(lastRow, 1, 1, 7);
+#
+#   rowRange.setFontFamily("Segoe UI")
+#           .setFontSize(10)
+#           .setVerticalAlignment("middle")
+#           .setHorizontalAlignment("center");
+#
+#   sheet.getRange(lastRow, 2, 1, 2).setHorizontalAlignment("left");
+#
+#   if (lastRow % 2 === 0) {
+#     rowRange.setBackground("#F8F9FA");
+#   } else {
+#     rowRange.setBackground("#FFFFFF");
+#   }
+#
+#   if (data.warns > 0) {
+#     sheet.getRange(lastRow, 6).setBackground("#FFF3CD").setFontColor("#856404").setFontWeight("bold");
+#   }
+#   if (data.rebukes > 0) {
+#     sheet.getRange(lastRow, 7).setBackground("#F8D7DA").setFontColor("#721C24").setFontWeight("bold");
+#   }
+#
+#   rowRange.setBorder(true, true, true, true, true, true, "#E0E0E0", SpreadsheetApp.BorderStyle.SOLID);
+#   return ContentService.createTextOutput("OK");
+# }
+#
+# function setupHeader(sheet) {
+#   var headers = [
+#     "📅 Дата и время",
+#     "👤 Сотрудник",
+#     "🔰 Должность",
+#     "⏱ Время сессии",
+#     "⏳ Всего на смене",
+#     "⚠️ Преды",
+#     "🚨 Выговоры"
+#   ];
+#   sheet.appendRow(headers);
+#   var headerRange = sheet.getRange(1, 1, 1, 7);
+#   headerRange.setBackground("#0080FF")
+#              .setFontColor("#FFFFFF")
+#              .setFontFamily("Segoe UI")
+#              .setFontSize(11)
+#              .setFontWeight("bold")
+#              .setHorizontalAlignment("center")
+#              .setVerticalAlignment("middle");
+#   sheet.setRowHeight(1, 35);
+#   sheet.setFrozenRows(1);
+#   sheet.setColumnWidth(1, 160);
+#   sheet.setColumnWidth(2, 150);
+#   sheet.setColumnWidth(3, 140);
+#   sheet.setColumnWidth(4, 160);
+#   sheet.setColumnWidth(5, 170);
+#   sheet.setColumnWidth(6, 90);
+#   sheet.setColumnWidth(7, 100);
+# }
+#
+# 4. Нажмите «Развернуть» -> «Новое развертывание».
+# 5. Тип: «Веб-приложение» (Web app).
+# 6. «У кого есть доступ»: выберите «Все» (Anyone).
+# 7. Скопируйте полученный Web App URL и вставьте в параметр webapp-url ниже.
+# ==========================================================
+
+sheets:
+  # Включить/выключить отправку данных в Google Таблицу
+  enabled: false
+
+  # URL развернутого Google Apps Script Веб-приложения
+  webapp-url: "https://script.google.com/macros/s/your_script_id/exec"
+
+  # Отправлять ли данные автоматически при каждом завершении смены (/sw)
+  sync-on-duty-end: true

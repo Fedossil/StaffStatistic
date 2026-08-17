@@ -1,0 +1,85 @@
+prefix: "&#00D2FF[StaffStatistic]&r "
+
+time-format:
+  hours: "ч."
+  minutes: "мин."
+  seconds: "сек."
+
+messages:
+  no-permission: "&cУ вас нет прав для выполнения этой команды!"
+  player-not-found: "&cИгрок не найден или не состоит в стаффе!"
+  role-not-found: "&cУказанная должность не найдена!"
+  already-staff: "&cЭтот игрок уже состоит в стаффе!"
+  not-staff: "&cВы не состоите в стаффе сервера!"
+  role-exists: "&cДолжность с таким названием уже существует!"
+
+  role-created: "&aДолжность &#00D2FF{role}&a успешно создана с приоритетом &e{priority}&a!"
+  added: "&aИгрок &#00D2FF{player}&a добавлен в стафф на должность: {role}"
+  kicked: "&cСотрудник &#00D2FF{player}&c был снят со стаффа."
+  upgraded: "&aСотрудник &#00D2FF{player}&a повышен до должности: {role}"
+  downgraded: "&eСотрудник &#00D2FF{player}&e понижен до должности: {role}"
+
+  work-enabled: "&aВы заступили на смену! Права выданы, время работы пошло."
+  work-disabled: "&cВы завершили смену! Права сняты. Отработано: &e{session}&c (Всего: &e{total}&c)."
+
+  warn-added: "&eСотруднику &#00D2FF{player}&e выдан пред. Причина: &f{reason} &7({current}/{max})"
+  rebuke-added: "&cСотруднику &#00D2FF{player}&c выдан выговор. Причина: &f{reason} &7({current}/{max})"
+  auto-kicked: "&4Сотрудник &#00D2FF{player}&4 автоматически снят за превышение лимита наказаний!"
+
+  stats-format:
+    - "&7============================="
+    - "&fНик: &#00D2FF{player}"
+    - "&fДолжность: {role}"
+    - "&fСтатус: {online}"
+    - "&fВремя на смене: &e{work_time}"
+    - "&fНорма онлайна: &b{norm_hours} ч./нед."
+    - "&fПредупреждения: &e{warns}/{max_warns}"
+    - "&fВыговоры: &c{rebukes}/{max_rebukes}"
+    - "&fБанов: &a{bans} &7(Норма: {norm_bans})"
+    - "&fМутов: &a{mutes} &7(Норма: {norm_mutes})"
+    - "&7============================="
+
+  status-online: "&aВ сети (На смене)"
+  status-online-nowork: "&eВ сети (Не на смене)"
+  status-offline: "&cОффлайн"
+
+gui:
+  title: "&#00D2FFУправление персоналом"
+  member-title: "&#00D2FFПрофиль: {player}"
+  status-online-tag: "&a[● ОНЛАЙН]"
+  status-offline-tag: "&c[● ОФФЛАЙН]"
+  summary:
+    title: "&#00D2FF&lСТАТИСТИКА СОСТАВА"
+    lore:
+      - "&8━━━━━━━━━━━━━━━━━━━━━━━━"
+      - "&fВсего сотрудников: &#00D2FF{total}"
+      - "&fСейчас на сервере: &a{online} &7/ &c{offline}"
+      - "&8━━━━━━━━━━━━━━━━━━━━━━━━"
+  head-lore:
+    - "&8━━━━━━━━━━━━━━━━━━━━━━━━"
+    - "&7Должность: {role} &8(Приоритет: &e{priority}&8)"
+    - "&7Режим смены: {duty_status}"
+    - "&7Наиграно на смене: &f{work_time}"
+    - "&7Предупреждения: {warn_bar} &e{warns}/{max_warns}"
+    - "&7Выговоры: {rebuke_bar} &c{rebukes}/{max_rebukes}"
+    - "&8━━━━━━━━━━━━━━━━━━━━━━━━"
+    - "&e⚡ Нажмите ЛКМ для управления"
+  duty-active: "&a✔ Включен (/sw)"
+  duty-inactive: "&c✖ Выключен"
+  close-button: "&c&lЗакрыть меню"
+  back-button: "&e« Назад в список"
+  actions:
+    add-warn: "&e[+] Выдать пред"
+    add-warn-lore:
+      - "&7Выдать сотруднику 1 предупреждение."
+      - "&7При лимите выдается выговор."
+    add-rebuke: "&c[+] Выдать выговор"
+    add-rebuke-lore:
+      - "&7Выдать сотруднику 1 строгий выговор."
+      - "&7При лимите сотрудник снимается со стаффа."
+    clear-punishments: "&a[✓] Очистить наказания"
+    clear-punishments-lore:
+      - "&7Полностью аннулировать преды и выговоры."
+    kick: "&4[✕] Снять со стаффа"
+    kick-lore:
+      - "&4Безвозвратно снять сотрудника с должности."

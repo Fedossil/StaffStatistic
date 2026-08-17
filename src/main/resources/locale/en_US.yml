@@ -1,0 +1,85 @@
+prefix: "&#00D2FF[StaffStatistic]&r "
+
+time-format:
+  hours: "h."
+  minutes: "min."
+  seconds: "sec."
+
+messages:
+  no-permission: "&cYou don't have permission to execute this command!"
+  player-not-found: "&cPlayer not found or not in staff!"
+  role-not-found: "&cSpecified role was not found!"
+  already-staff: "&cThis player is already in staff!"
+  not-staff: "&cYou are not a staff member!"
+  role-exists: "&cRole with this name already exists!"
+
+  role-created: "&aRole &#00D2FF{role}&a created with priority &e{priority}&a!"
+  added: "&aPlayer &#00D2FF{player}&a added to staff as: {role}"
+  kicked: "&cStaff member &#00D2FF{player}&c has been removed."
+  upgraded: "&aStaff member &#00D2FF{player}&a promoted to: {role}"
+  downgraded: "&eStaff member &#00D2FF{player}&e demoted to: {role}"
+
+  work-enabled: "&aYou are now on duty! Permissions granted, work time started."
+  work-disabled: "&cYou went off duty! Permissions removed. Worked: &e{session}&c (Total: &e{total}&c)."
+
+  warn-added: "&eStaff member &#00D2FF{player}&e received a warn. Reason: &f{reason} &7({current}/{max})"
+  rebuke-added: "&cStaff member &#00D2FF{player}&c received a rebuke. Reason: &f{reason} &7({current}/{max})"
+  auto-kicked: "&4Staff member &#00D2FF{player}&4 auto-removed due to punishment limit!"
+
+  stats-format:
+    - "&7============================="
+    - "&fPlayer: &#00D2FF{player}"
+    - "&fRole: {role}"
+    - "&fStatus: {online}"
+    - "&fWork Time: &e{work_time}"
+    - "&fWeekly Norm: &b{norm_hours} hrs/week"
+    - "&fWarns: &e{warns}/{max_warns}"
+    - "&fRebukes: &c{rebukes}/{max_rebukes}"
+    - "&fBans: &a{bans} &7(Req: {norm_bans})"
+    - "&fMutes: &a{mutes} &7(Req: {norm_mutes})"
+    - "&7============================="
+
+  status-online: "&aOnline (On Duty)"
+  status-online-nowork: "&eOnline (Off Duty)"
+  status-offline: "&cOffline"
+
+gui:
+  title: "&#00D2FFStaff Management"
+  member-title: "&#00D2FFProfile: {player}"
+  status-online-tag: "&a[● ONLINE]"
+  status-offline-tag: "&c[● OFFLINE]"
+  summary:
+    title: "&#00D2FF&lSTAFF STATISTICS"
+    lore:
+      - "&8━━━━━━━━━━━━━━━━━━━━━━━━"
+      - "&fTotal Staff: &#00D2FF{total}"
+      - "&fCurrently Online: &a{online} &7/ &c{offline}"
+      - "&8━━━━━━━━━━━━━━━━━━━━━━━━"
+  head-lore:
+    - "&8━━━━━━━━━━━━━━━━━━━━━━━━"
+    - "&7Role: {role} &8(Priority: &e{priority}&8)"
+    - "&7Duty Mode: {duty_status}"
+    - "&7Worked on duty: &f{work_time}"
+    - "&7Warns: {warn_bar} &e{warns}/{max_warns}"
+    - "&7Rebukes: {rebuke_bar} &c{rebukes}/{max_rebukes}"
+    - "&8━━━━━━━━━━━━━━━━━━━━━━━━"
+    - "&e⚡ Click LMB to manage"
+  duty-active: "&a✔ Active (/sw)"
+  duty-inactive: "&c✖ Disabled"
+  close-button: "&c&lClose Menu"
+  back-button: "&e« Back to List"
+  actions:
+    add-warn: "&e[+] Give Warn"
+    add-warn-lore:
+      - "&7Give the staff member 1 warning."
+      - "&7A rebuke is issued at limit."
+    add-rebuke: "&c[+] Give Rebuke"
+    add-rebuke-lore:
+      - "&7Give the staff member 1 rebuke."
+      - "&7Member is removed at limit."
+    clear-punishments: "&a[✓] Clear Punishments"
+    clear-punishments-lore:
+      - "&7Reset all warns and rebukes."
+    kick: "&4[✕] Kick from staff"
+    kick-lore:
+      - "&4Permanently remove staff member."

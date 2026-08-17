@@ -1,0 +1,15 @@
+name: StaffStatistic
+version: 1.0
+main: net.staffstatistic.StaffStatisticPlugin
+api-version: 1.16
+author: StaffStatistic Team
+softdepend: [LuckPerms, LiteBans, AdvancedBan]
+commands:
+  staff:
+    description: Главная команда управления персоналом
+    permission: staffstatistic.admin
+    aliases: [sstat]
+  staffwork:
+    description: Вход/выход из режима смены
+    permission: staffstatistic.work
+    aliases: [sw]
