@@ -46,3 +46,5 @@ A modular, production-ready staff administration plugin for Minecraft servers (*
 | `/staff rebuke <player> [reason]` | Issue a formal rebuke | `staffstatistic.admin` |
 | `/staff stats <player>` | Display detailed staff statistics in chat | `staffstatistic.admin` |
 | `/staff createnew <role> <priority>` | Register a new role directly into config | `staffstatistic.admin` |
+
+
